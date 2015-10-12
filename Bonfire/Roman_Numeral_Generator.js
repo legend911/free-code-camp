@@ -1,3 +1,5 @@
+// program to change numbers into roman numerals
+
 function convert(num) {
   var I = 1;
   var V = 5;
@@ -7,29 +9,39 @@ function convert(num) {
   var D = 500;
   var M = 1000;
   
-  if (M < num) {
+  // not completed to shorten program
+  if (M <= num) {
       
   }
   
-  if (D < num) {
+  // not completed to shorten program
+  if (D <= num) {
       
   } 
   
-  if (C < num) {
+  // not completed to shorten program
+  if (C <= num) {
       
   }
   
-  if (L < num) {
+  // not completed to shorten program
+  if (L <= num) {
       
   }
   
-  if (X < num) {
+  // calculates roman numbers below 50
+  if (X <= num) {
     var roman = '';
     while (X < num) {
         num -= X;
         roman += "X";
     }
     
+    if (num == X-1) {
+        roman += "IX" 
+        return roman;
+    }
+    
     while (V < num) {
         num -= V;
         roman += "V";
@@ -43,14 +55,15 @@ function convert(num) {
     return roman;
   }
   
-  if (V < num) {
+  // calculates roman numbers below 10
+  if (V <= num) {
     var roman = '';
-    if (num == 9) {
+    if (num == X-1) {
         roman += "IX" 
         return roman;
     }
       
-    while (V < num) {
+    while (V <= num) {
         num -= V;
         roman += "V";
     }
@@ -64,11 +77,16 @@ function convert(num) {
       
   }
   
+  
+  // calculates roman numbers below 5
   if (I < num) {
-      
+      while (I <= num) {
+        num -= I;
+        roman += "I";
+    }
   }
   
   
 }
 
-convert(9);
+convert(29);
