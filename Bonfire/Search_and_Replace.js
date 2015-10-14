@@ -1,17 +1,21 @@
 function myReplace(str, before, after) {
-    var newStr;
-    
+    str = str.split(" ");
+    var testBefore = before.charAt(0).toUpperCase() + before.slice(1);
+    if (before == testBefore) {
+      after = after.charAt(0).toUpperCase() + after.slice(1); 
+    }
+    var newStr = "";
     // remove the "before"
     for (var i = 0; i < str.length; i++) {
         if (str[i] == before) {
-            str.splice(i, 1);
-            newStr = str.replace(before, after);
+            str.splice(i, 1, after);
+            // newStr = str.replace(before, after);
         }
     }
-    
-    
+     
+    newStr = str.join(' ');
     
  return newStr;
 }
 
-myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting")
