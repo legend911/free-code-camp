@@ -19,11 +19,13 @@ function smallestCommons(arr) {
       
       // check if all numbers are multiples and returns
       if (multipleBad == 0) {
+        // make the loop equal to "false" in case a bad use case happens
         loopStopStart = false;
         return multiple; 
       }
     } // checks "arr" for multiplication
     multiple += multipleMax;
+    // reset the bad multiple number indicator
     multipleBad = 0;
   } // while loop
   
