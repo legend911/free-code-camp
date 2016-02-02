@@ -63,3 +63,28 @@ function writeData(err, myFiles) {
     }
 }
 */
+
+
+// list of files by extension (asynchronous) with modules
+// my file mymodule contains my function and then I require
+// it and use it as a function to save space
+/*
+var mymodule = require('./mymodule.js');
+mymodule(process.argv[2], process.argv[3], writeData);
+
+function writeData(err, myFiles) {
+    if (err) {
+        return writeData(err);
+    }
+    var path = require("path");
+    for (var i = 0; i < myFiles.length; i++) {
+        var ext = path.extname(myFiles[i]);
+        if (ext == "." + process.argv[3]) {
+            console.log(myFiles[i]);
+        }
+    }
+}
+*/
+
+
+// HTTP Get Request
