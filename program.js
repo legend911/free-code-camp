@@ -88,3 +88,16 @@ function writeData(err, myFiles) {
 
 
 // HTTP Get Request
+getData(process.argv[2], writeData);
+
+function getData(data, callback) {
+    const http = require("http");
+    var contents = http.get(process.argv[2], callback);
+}
+
+function writeData(myData) {
+    myData.setEncoding('utf8');
+    myData.on("data", function (myData) { 
+        console.log(myData); 
+    });
+}
