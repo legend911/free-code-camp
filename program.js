@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-// Hello World
-/*
-console.log("HELLO WORLD");
-*/
-
-// Baby Steps
-=======
->>>>>>> 805a1f41d797535dd6bee3efdac603d1d76532d0
 /*
 var total = 0;
 
@@ -17,11 +8,7 @@ for (var i = 2; i < process.argv.length; i++) {
 console.log(total);
 */
 
-<<<<<<< HEAD
 
-// My First I/O
-=======
->>>>>>> 805a1f41d797535dd6bee3efdac603d1d76532d0
 /*
 var fs = require('fs');
 var file = fs.readFileSync(process.argv[2]);
@@ -35,10 +22,7 @@ for (var j = 1; j < newLine.length; j++) {
 console.log(newLineTotal);
 */
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 805a1f41d797535dd6bee3efdac603d1d76532d0
 // This is the callback version
 /*
 var newLineTotal = 0;
@@ -105,10 +89,7 @@ function writeData(err, myFiles) {
 
 
 // HTTP Get Request
-<<<<<<< HEAD
 /*
-=======
->>>>>>> 805a1f41d797535dd6bee3efdac603d1d76532d0
 getData(process.argv[2], writeData);
 
 function getData(data, callback) {
@@ -183,3 +164,27 @@ http.get(process.argv[4], function (response) {
 */
 
 // Time Server
+/*
+var net = require('net')  
+
+// socket handling logic  
+function timeFixer (x) {
+    return (x < 10 ? '0': '') + x;
+}
+    
+    
+function currentTime () {
+    var date = new Date();
+    
+    return date.getFullYear() + '-' +
+    timeFixer(date.getMonth() + 1) + '-' +
+    timeFixer(date.getDate()) + ' ' +
+    timeFixer(date.getHours()) + ':' +
+    timeFixer(date.getMinutes());
+}
+    
+var server = net.createServer(function (socket) {  
+    socket.end(currentTime() + "\n");
+})  
+server.listen(process.argv[2]) 
+*/
