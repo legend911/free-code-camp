@@ -202,6 +202,7 @@ server.listen(process.argv[2]);
 */
 
 // HTTP UpperCaserer
+/*
 var http = require('http');
 var fs = require("fs");
 var map = require('through2-map');
@@ -212,4 +213,48 @@ var server = http.createServer(function (request, response) {
     })).pipe(response);
     
 }) 
+server.listen(process.argv[2]);
+*/
+
+// HTTP JSON API Server
+var http = require('http');
+var url = require('url');
+
+var server = http.createServer(function (request, response) {  
+    var solution;
+    var preParseTime =  url.parse(request.url, true);
+    var newTime = preParseTime.query.iso;
+    var location = preParseTime.pathname;
+    
+    function time (newTime) {
+        return Date.parse(newTime);
+    }
+    
+    function funixTime (newTime) {
+        return {
+            unixtime: time(newTime)
+        }
+    }
+    
+    function fparseTime (newTime) {
+        var parseTime = new Date(time(newTime));
+        
+        return {
+            hour: parseTime.getHours(),
+            minute: parseTime.getMinutes(),
+            second: parseTime.getSeconds()
+        }
+    }
+    
+    if (location === "/api/unixtime") {
+        solution = funixTime(newTime);
+    }
+    
+    else if (location === "/api/parsetime") {
+        solution = fparseTime(newTime);
+    }
+    
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    response.end(JSON.stringify(solution));
+});
 server.listen(process.argv[2]);
