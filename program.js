@@ -217,6 +217,7 @@ server.listen(process.argv[2]);
 */
 
 // HTTP JSON API Server
+/*
 var http = require('http');
 var url = require('url');
 
@@ -258,3 +259,42 @@ var server = http.createServer(function (request, response) {
     response.end(JSON.stringify(solution));
 });
 server.listen(process.argv[2]);
+*/
+
+// Express (Hello World)
+/*
+var express = require('express');
+var app = express();
+app.get('/home', function(req, res) {
+    res.end('Hello World!');
+});
+app.listen(process.argv[2]);
+*/
+
+// Express (Static)
+/*
+var express = require('express');
+var app = express();
+var path = require('path');
+
+app.use(express.static(process.argv[3]||path.join(__dirname, 'public')));
+
+app.listen(process.argv[2]);
+*/
+
+// Express (JADE)
+/*
+var express = require('express');
+var app = express();
+var path = require('path');
+
+app.set('views', process.argv[3]);
+app.set('view engine', 'jade');
+app.get('/home', function(req, res) {
+    res.render('index', {date: new Date().toDateString()});
+});
+
+app.listen(process.argv[2]);
+*/
+
+// Express (Good Ole Form)
