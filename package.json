@@ -1,10 +1,13 @@
 {
-  "name": "chat-example",
+  "name": "freecodecamp",
   "version": "0.0.0",
-  "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
+  "description": "Updated package.json file",
   "main": "server.js",
-  "repository": "",
-  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legend911/free-code-camp.git"
+  },
+  "author": "Dwight Norris <norrisdb@yahoo.com>",
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",

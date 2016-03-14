@@ -298,3 +298,17 @@ app.listen(process.argv[2]);
 */
 
 // Express (Good Ole Form)
+var express = require('express');
+var app = express();
+var bodyparser = require('body-parser');
+
+app.use(bodyparser.urlencoded({extended: false}));
+app.use(bodyparser.json());
+
+app.post('/form', function(req, res) {
+    
+    var answer = req.body.str.split('').reverse().join('');
+    res.end(answer);
+});
+
+app.listen(process.argv[2]);
