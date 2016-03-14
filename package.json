@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "chat-example",
   "version": "0.0.0",
   "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
@@ -11,31 +10,4 @@
     "express": "~3.2.4",
     "socket.io": "~0.9.14"
   }
-=======
-  "name": "workspace",
-  "version": "1.0.1",
-  "description": ",-----.,--.                  ,--. ,---.   ,--.,------.  ,------.     '  .--./|  | ,---. ,--.,--. ,-|  || o   \\  |  ||  .-.  \\ |  .---'     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \\  :|  `--,      '  '--'\\|  |' '-' ''  ''  '\\ `-' | .'  /   |  ||  '--'  /|  `---.      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'     -----------------------------------------------------------------",
-  "main": "server.js",
-  "dependencies": {
-    "@linclark/pkg": "^1.0.2",
-    "async": "^0.2.10",
-    "express": "^3.2.6",
-    "socket.io": "^0.9.17"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "node test.js",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/legend911/free-code-camp.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/legend911/free-code-camp/issues"
-  },
-  "homepage": "https://github.com/legend911/free-code-camp#readme"
->>>>>>> c6862da1f42e581446aa589f3e8804d12ffac79e
 }
