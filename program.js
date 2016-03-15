@@ -316,6 +316,7 @@ app.listen(process.argv[2]);
 */
 
 // Express (Stylish CSS)
+/*
 var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
@@ -332,3 +333,23 @@ app.post('/form', function(req, res) {
 });
 
 app.listen(process.argv[2]);
+*/
+
+// Express (PARAM PAM PAM)
+/*
+var express = require('express');
+var app = express();
+
+app.put('/message/:id', function(req, res){
+    var id = req.params.id;
+    var solution = require('crypto')
+      .createHash('sha1')
+      .update(new Date().toDateString() + id)
+      .digest('hex')
+    res.end(solution);
+});
+
+app.listen(process.argv[2]);
+*/
+
+// Express (What's in Query)
