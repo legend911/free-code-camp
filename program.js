@@ -353,6 +353,7 @@ app.listen(process.argv[2]);
 */
 
 // Express (What's in Query)
+/*
 var express = require('express');
 var app = express();
 
@@ -362,3 +363,21 @@ app.get('/search', function(req, res) {
 });
 
 app.listen(process.argv[2]);
+*/
+
+// Express (JSON ME)
+/*
+var express = require('express');
+var app = express();
+var fs = require("fs");
+var parsedFile;
+
+app.get('/books', function (req, res) {
+    fs.readFile(process.argv[3], function (err, data) {
+        if (err) throw err;
+        parsedFile = JSON.parse(data);
+        res.json(parsedFile);
+    });
+});
+app.listen(process.argv[2]);
+*/
