@@ -97,6 +97,7 @@ MongoClient.connect(url, function(err, db) {
 */
 
 // MongoDB (Remove)
+/*
 var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/' + process.argv[2];
 var colName = process.argv[3];
@@ -112,6 +113,30 @@ MongoClient.connect(url, function(err, db) {
     // handle error
     if (err) throw err;
     // other operations
+    db.close();
+  });
+})
+*/
+
+// MongoDB (Count)
+var mongo = require('mongodb').MongoClient
+var url = 'mongodb://localhost:27017/learnyoumongo';
+var arg1 = process.argv[2];
+
+mongo.connect(url, function(err, db) {
+  // db gives access to the database
+  if (err) throw err;
+  var collection = db.collection('parrots');
+  
+  collection.count({
+      age: {
+        $gt: +arg1
+      }
+  }, function(err, count) {
+    // handle error
+    if (err) throw err;
+    // other operations
+    console.log(count);
     db.close();
   });
 })
