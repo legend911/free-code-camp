@@ -73,6 +73,7 @@ MongoClient.connect(url, function(err, db) {
 */
 
 // MongoDB (Update)
+/*
 var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/' + process.argv[2];
 
@@ -92,4 +93,25 @@ MongoClient.connect(url, function(err, db) {
     // other operations
     db.close();
   })
+})
+*/
+
+// MongoDB (Remove)
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://localhost:27017/' + process.argv[2];
+var colName = process.argv[3];
+var id = process.argv[4];
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var collection = db.collection(colName);
+  
+  collection.remove({
+      _id: id
+  },function(err, data) {
+    // handle error
+    if (err) throw err;
+    // other operations
+    db.close();
+  });
 })
