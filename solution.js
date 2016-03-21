@@ -119,6 +119,7 @@ MongoClient.connect(url, function(err, db) {
 */
 
 // MongoDB (Count)
+/*
 var mongo = require('mongodb').MongoClient
 var url = 'mongodb://localhost:27017/learnyoumongo';
 var arg1 = process.argv[2];
@@ -139,4 +140,35 @@ mongo.connect(url, function(err, db) {
     console.log(count);
     db.close();
   });
+})
+*/
+
+// MongoDB (Aggregate)
+var mongo = require('mongodb').MongoClient;
+var url = 'mongodb://localhost:27017/learnyoumongo';
+var arg1 = process.argv[2];
+
+mongo.connect(url, function(err, db) {
+  // db gives access to the database
+  if (err) throw err;
+  var collection = db.collection('prices');
+  
+  collection.aggregate([
+      { $match: {size: arg1} }
+    , { $group: {
+        _id: 'total' // This can be an arbitrary string in this case
+      , total: {
+          // $avg is the operator used here
+          $avg: '$price'
+        }
+      }}
+    ]).toArray(function(err, results) {
+      // handle error
+      if (err) throw err;
+      console.log(Number(results[0].total).toFixed(2));
+      // => [
+      // =>   { _id: 'total', total: 11 }
+      // => ]
+      db.close();
+    });
 })
